@@ -1,0 +1,139 @@
+body {
+  background-color: #1a1a1a;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center; /* Centraliza o texto */
+}
+
+.barra {
+  width: 100%;
+}
+
+.barra-1 {
+    background-color: red; /* Cor da primeira barra */
+    height: 80px; /* Barra 1 maior */
+    position: fixed; /* Posicionamento fixo */
+    top: 0; /* Posiciona no topo da tela */
+    left: 0; /* Alinha ao lado esquerdo da tela */
+    z-index: 1;
+    background: linear-gradient(to bottom, #6A00F4 40%, black 100%); /* Degradê na parte inferior */
+    background: linear-gradient(135deg, #00AEEF, #6A00F4); /* Degradê diagonal */
+    filter: blur(9px);
+    width: 105%; /* A largura da barra 1 é um pouco maior que a da barra 2 */
+    margin-left: -2.5%; /* Ajuste para centralizar a barra 1 e deixá-la maior */
+}
+
+.barra-2 {
+    background-color: blue; /* Cor da segunda barra */
+    height: 80px; /* Barra 2 menor */
+    position: fixed; /* Posicionamento fixo */
+    top: 40px; /* Posiciona logo abaixo da barra 1 */
+    left: 0; /* Alinha ao lado esquerdo da tela */
+    z-index: 2; /* Barra azul ficará acima da vermelha */
+    margin-top: -60px; /* Move a barra azul para cima */
+    background: linear-gradient(135deg, #00AEEF, #6A00F4); /* Degradê diagonal */
+    font-size: 16px; /* Tamanho da fonte */
+    font-family: 'LINEMAS';
+    display: flex; /* Use flexbox to align h1 and header */
+    align-items: center; /* Vertically center items */
+    justify-content: space-between; /* Space between h1 and header */
+    padding: 0 20px; /* Add padding for better spacing */
+}
+
+.barra-2 h1 {
+  margin: 0;
+  font-size: 28px;
+  text-transform: uppercase;
+}
+
+h2 {
+  margin-top: 100px; /* Espaço acima do título */
+  margin-bottom: 20px; /* Espaço abaixo do título */
+  text-align: center; /* Centraliza o texto */
+}
+
+.category {
+  background-color: #4a90e2;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 20px;
+  margin: 5px;
+  text-decoration: none;
+  display: inline-block; /* Certifique-se de que os links fiquem em linha */
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 15px;
+  justify-items: center; /* Centraliza os itens horizontalmente */
+  align-items: center; /* Centraliza os itens verticalmente */
+}
+
+.tile {
+  background: #333;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center; /* Centraliza o texto dentro do tile */
+  transition: transform 0.3s ease;
+}
+
+.tile img {
+  width: 80px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.tile p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #1a1a1a;
+  color: #666;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  font-size: 12px;
+}
+h1 {
+  margin-top: 100px; /* Espaço acima do título */
+  margin-bottom: 20px; /* Espaço abaixo do título */
+  text-align: center; /* Centraliza o texto */
+}
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.music-card {
+  background-color: #333; /* Cor de fundo */
+  border-radius: 8px; /* Bordas arredondadas */
+  width: 150px; /* Largura do card */
+  text-align: center; /* Centraliza o texto */
+  overflow: hidden; /* Esconde o excesso */
+  transition: transform 0.3s; /* Efeito de hover */
+}
+
+.music-card:hover {
+  transform: scale(1.05); /* Aumenta o card ao passar o mouse */
+}
+
+.thumbnail {
+  height: 150px; /* Altura da imagem */
+  background-size: cover; /* Ajusta a imagem para cobrir o espaço */
+  background-position: center; /* Centraliza a imagem */
+}
+
+.music-card p {
+  color: white; /* Cor do texto */
+  margin-top: 10px; /* Margem superior */
+  padding: 5px; /* Espaçamento interno */
+}

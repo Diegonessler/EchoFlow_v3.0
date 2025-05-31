@@ -1,0 +1,152 @@
+/* Player Container */
+.player-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 120px; /* Adjust this value based on the height of your fixed bars */
+}
+
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #111;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+/* Header Styles */
+header {
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 28px;
+    margin-left: 20px;
+}
+
+header nav a {
+    color: #fff;
+    margin-right: 30px;
+    text-decoration: none;
+    font-weight: 300;
+}
+
+/* Fixed Bars */
+.barra {
+    width: 100%;
+}
+
+/* Barra superior */
+.barra-1 {
+    background-color: red; /* Cor da primeira barra */
+    height: 80px; /* Barra 1 maior */
+    position: fixed; /* Posicionamento fixo */
+    top: 0; /* Posiciona no topo da tela */
+    left: 0; /* Alinha ao lado esquerdo da tela */
+    z-index: 1;
+    background: linear-gradient(to bottom, #6A00F4 40%, black 100%); /* Degradê na parte inferior */
+    background: linear-gradient(135deg, #00AEEF, #6A00F4); /* Degradê diagonal */
+    filter: blur(9px);
+    width: 105%; /* A largura da barra 1 é um pouco maior que a da barra 2 */
+    margin-left: -2.5%; /* Ajuste para centralizar a barra 1 e deixá-la maior */
+}
+
+.barra-2 {
+    background-color: blue; /* Cor da segunda barra */
+    height: 80px; /* Barra 2 menor */
+    position: fixed; /* Posicionamento fixo */
+    top: 40px; /* Posiciona logo abaixo da barra 1 */
+    left: 0; /* Alinha ao lado esquerdo da tela */
+    z-index: 2; /* Barra azul ficará acima da vermelha */
+    margin-top: -60px; /* Move a barra azul para cima */
+    background: linear-gradient(135deg, #00AEEF, #6A00F4); /* Degradê diagonal */
+    font-size: 16px; /* Tamanho da fonte */
+    font-family: 'LINEMAS';
+    display: flex; /* Use flexbox to align h1 and header */
+    align-items: center; /* Vertically center items */
+    justify-content: space-between; /* Space between h1 and header */
+    padding: 0 20px; /* Add padding for better spacing */
+}
+
+h1 {
+    padding-top: 15px;
+    padding-left: 50px;
+    text-align: left;
+    color: #ffffff;
+    font-family: 'Pacifico', 'LINEMAS', cursive; /* Use a script font for "EchoFlow" */
+    font-size: 36px; /* Larger font size to match the image */
+    margin: 0; /* Remove default margin */
+}
+
+.h1-body {
+    padding: 20px;
+    color: rgb(255, 255, 255);
+    text-align: center; /* Centraliza o texto */
+}
+
+
+/* Player Container */
+.player-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Cover Art */
+.cover-art {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+/* Music Info */
+.musica-info {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.controls button {
+    background: none;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+img
+{
+    width: 90px;
+    height: 90px;
+    padding: 20px; 
+    border-radius: 8px;
+}

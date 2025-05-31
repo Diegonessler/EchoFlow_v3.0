@@ -1,0 +1,267 @@
+@font-face {
+    font-family: 'HAPPYMASS';
+    src: url('HAPPYMASS.otf') format('opentype'),
+         url('HAPPYMASS.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LINEMAS';
+    src: url('LINEMAS.otf') format('opentype'),
+         url('LINEMAS.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background: black;
+    margin: 0; /* Remove default margin for better layout control */
+}
+
+a {
+    color: #ffffff;
+}
+
+.barra {
+    width: 100%;
+}
+
+/* Barra superior */
+.barra-1 {
+    background-color: red; /* Cor da primeira barra */
+    height: 80px; /* Barra 1 maior */
+    position: fixed; /* Posicionamento fixo */
+    top: 0; /* Posiciona no topo da tela */
+    left: 0; /* Alinha ao lado esquerdo da tela */
+    z-index: 1;
+    background: linear-gradient(to bottom, #6A00F4 40%, black 100%); /* Degradê na parte inferior */
+    background: linear-gradient(135deg, #00AEEF, #6A00F4); /* Degradê diagonal */
+    filter: blur(9px);
+    width: 105%; /* A largura da barra 1 é um pouco maior que a da barra 2 */
+    margin-left: -2.5%; /* Ajuste para centralizar a barra 1 e deixá-la maior */
+}
+
+.barra-2 {
+    background-color: blue; /* Cor da segunda barra */
+    height: 80px; /* Barra 2 menor */
+    position: fixed; /* Posicionamento fixo */
+    top: 40px; /* Posiciona logo abaixo da barra 1 */
+    left: 0; /* Alinha ao lado esquerdo da tela */
+    z-index: 2; /* Barra azul ficará acima da vermelha */
+    margin-top: -60px; /* Move a barra azul para cima */
+    background: linear-gradient(135deg, #00AEEF, #6A00F4); /* Degradê diagonal */
+    font-size: 16px; /* Tamanho da fonte */
+    font-family: 'LINEMAS';
+    display: flex; /* Use flexbox to align h1 and header */
+    align-items: center; /* Vertically center items */
+    justify-content: space-between; /* Space between h1 and header */
+    padding: 0 20px; /* Add padding for better spacing */
+}
+
+h1 {
+    padding-top: 15px;
+    padding-left: 50px;
+    text-align: left;
+    color: #ffffff;
+    font-family: 'Pacifico', 'LINEMAS', cursive; /* Use a script font for "EchoFlow" */
+    font-size: 36px; /* Larger font size to match the image */
+    margin: 0; /* Remove default margin */
+}
+
+.h1-body {
+    padding: 20px;
+    color: rgb(255, 255, 255);
+    text-align: center; /* Centraliza o texto */
+}
+
+/* Estilos padrão para todos os navegadores */
+.top-bar {
+    background: linear-gradient(to right, #007BFF, #6a0dad);
+    padding: 20px;
+    text-align: left;
+}
+
+@supports (-webkit-touch-callout: none) {
+    .barra-1 {
+        width: 100%; /* Garante que não fique maior que a tela */
+    }
+}
+
+.login-test {
+    padding: 2px;
+}
+
+.login {
+    padding-left: 2px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 10px;
+}
+
+.img-metade-direita {
+    position: absolute;
+    top: 0px; /* Começa logo abaixo da barra */
+    left: 50%;
+    width: 50vw;
+    height: calc(100vh - 60px); /* Reduz a altura da barra */
+    object-fit: cover;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.8); /* Sombra interna preta */
+}
+
+/* Header with Search Bar and Logo */
+header {
+    display: flex; /* Use flexbox to align input and img */
+    align-items: center; /* Vertically center the items */
+    gap: 10px; /* Space between search bar and logo */
+    margin-right: 40px; /* Added to create space from the right edge */
+    margin-top: 30px;
+}
+
+header input {
+    padding: 9px;
+    border-radius: 20px;
+    border: none;
+    background-color: #333;
+    color: white;
+    width: 300px;
+}
+
+header input::placeholder {
+    color: #ccc; /* Light gray placeholder text to match the image */
+}
+
+header img.header-logo {
+    width: 50px; /* Smaller size for the logo next to the search bar */
+    height: auto;
+}
+
+/* Seção de Destaque */
+.highlight {
+    background: linear-gradient(to right, #b400ab, #8a2be2);
+    margin: 100px auto 20px; /* Add top margin to avoid overlap with fixed header */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.highlight h2 {
+    font-size: 24px; /* Slightly larger for emphasis */
+    margin-bottom: 10px;
+    font-family: 'HAPPYMASS', sans-serif;
+    color: #ffffff;
+}
+
+.highlight p {
+    font-size: 16px; /* Slightly larger for readability */
+    margin-bottom: 15px;
+    font-family: 'HAPPYMASS', sans-serif;
+    color: #ffffff;
+}
+
+.highlight button {
+    padding: 10px 20px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'HAPPYMASS', sans-serif;
+}
+
+/* Seções de Playlists e Álbuns */
+section {
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    display: flex; /* Use flexbox for centering */
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex; /* Center horizontally */
+    margin-left: flex; /* Center the section itself */
+    margin-right: auto;
+}
+
+section h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 8px;
+    justify-items: center;
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.card {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    width: 140px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+    box-sizing: 0 0 15px 5px rgba(25, 0, 255, 0.7), 0 0 25px 10px rgba(138, 43, 226, 0.5);
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.card p {
+    padding: 10px;
+    font-size: 14px;
+}
+
+/* Footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 1240px;
+    text-align: center;
+    background-color: #1a1a1a;
+    padding: 10px;
+    left: 50%;
+    transform: translateX(-50%); /* Center the footer */
+}
+
+footer img {
+    width: 100px;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+}
+
+h3 {
+    color: #ffffff;
+}
+
+h6 {
+    color: #ffffff;
+}
+
+p {
+    color: #ffffff;
+}
+
+/* Remove the generic img rule to avoid affecting all images */

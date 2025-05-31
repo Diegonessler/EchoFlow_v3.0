@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EchoFlow</title>
+  <link rel='stylesheet' href='/stylesheets/browser.css' />
+</head>
+<body>
+
+   <!-- Cabeçalho -->
+    <div class="barra barra-1"></div>
+    <div class="barra barra-2">
+        <h1>EchoFlow</h1>
+    </div>
+
+  <!-- Categorias -->
+  <h2>Categorias</h2>
+  <div class="flex flex-wrap justify-center gap-2 mb-8">
+    <% categorias.forEach(categoria => { %>
+      <a href="/categoria/<%= categoria.toLowerCase() %>" class="category"><%= categoria %></a>
+    <% }) %>
+  </div>
+
+  <!-- Seções -->
+  <section class="mb-6">
+    <h3>🎧 Mais Populares</h3>
+    <div class="card-container">
+      <% suasPlaylists.forEach(musica => { %>
+        <a href="/play?id=<%= musica.id %>&artist=<%= musica.artista %>&image=<%= musica.imagem %>" class="tile">
+          <img src="<%= musica.imagem %>" alt="<%= musica.titulo %>">
+          <p><%= musica.titulo %></p>
+        </a>
+      <% }) %>
+    </div>
+  </section>
+
+<section class="mb-6">
+  <h3>🎧 Mais Populares</h3>
+  <div class="card-container">
+    <% suasPlaylists.forEach(musica => { %>
+      <a href="/play?id=<%= musica.id %>&artist=<%= musica.artista %>&image=<%= musica.imagem %>" class="tile">
+        <img src="<%= musica.imagem %>" alt="<%= musica.titulo %>">
+        <p><%= musica.titulo %></p>
+      </a>
+    <% }) %>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    © 2024 WebSoft Ltda. Todos os direitos reservados.
+  </footer>
+</body>
+</html>

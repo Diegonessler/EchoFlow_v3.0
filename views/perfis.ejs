@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EchoFlow</title>
+    <link rel='stylesheet' href='/stylesheets/estiles.css' />
+</head>
+<body>
+  
+    <!-- Cabeçalho -->
+    <div class="barra barra-1"></div>
+    <div class="barra barra-2">
+        <h1>EchoFlow</h1>
+        <header>
+            <h2>Lista de Perfis</h2>
+            <img src="../images/logo.png" alt="Small Logo" class="header-logo">
+            <input type="text" placeholder="Pesquisar...">
+        </header>
+    </div>
+
+    <!-- Seção de Destaque -->
+    <div class="highlight">
+        <h2>Descubra novas músicas</h2>
+        <p>Explore os sucessos mais recentes e suas músicas favoritas.</p>
+       <a href="/browser"><button>Descubra</button></a> 
+    </div>
+
+
+   <section>
+  <h3>Suas Playlists🎧</h3>
+  <div class="grid">
+    <% suasPlaylists.forEach(musica => { %>
+      <a href="/play?id=<%= musica.id %>&artist=<%= musica.artista %>&image=<%= musica.imagem %>" class="card-link">
+        <div class="card">
+          <img src="<%= musica.imagem %>" alt="<%= musica.titulo %>">
+          <p><%= musica.titulo %></p>
+        </div>
+      </a>
+    <% }) %>
+  </div>
+</section>
+
+<section>
+<h3>Feito pra Você</h3>
+<div class="grid">
+    <% feitasparavoce.forEach(musica => { %>
+      <a href="/play?id=<%= musica.id %>&artist=<%= musica.artista %>&image=<%= musica.imagem %>" class="card-link">
+        <div class="card">
+          <img src="<%= musica.imagem %>" alt="<%= musica.titulo %>">
+          <p><%= musica.titulo %></p>
+        </div>
+      </a>
+    <% }) %>
+  </div>
+</section>
+
+
+<section >
+  <h3>As Mais Ouvidas 🎧</h3>
+  <div class="grid">
+    <% AsMaisOuvidas.forEach(musica => { %>
+      <a href="/play?id=<%= musica.id %>&artist=<%= musica.artista %>&image=<%= musica.imagem %>" class="card-link">
+        <div class="card">
+          <img src="<%= musica.imagem %>" alt="<%= musica.titulo %>">
+          <p><%= musica.titulo %></p>
+        </div>
+      </a>
+    <% }) %>
+  </div>
+  
+</section>
+   
+
+    <!-- Footer -->
+    <footer>
+        <h6>© 2024 WebSoft Ltda. Todos os direitos reservados.</h6>
+    </footer>
+</body>
+</html>

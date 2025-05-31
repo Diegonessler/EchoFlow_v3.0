@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='stylesheet' href='/stylesheets/estiles.css' />
+  <title>EchoFlow</title>
+
+</head>
+<body class="bg-black text-white font-sans">
+
+  <!-- Cabeçalho -->
+  <div class="barra barra-1"></div>
+  <div class="barra barra-2">
+      <h1>EchoFlow</h1>
+      <header>
+          <h2>Lista de Perfis</h2>
+          <img src="../images/logo.png" alt="Small Logo" class="header-logo">
+          <input type="text" placeholder="Pesquisar...">
+      </header>
+  </div>
+
+  <main class="max-w-md mx-auto py-6 px-4">
+
+    <!-- Search -->
+    <div class="flex items-center space-x-2 mb-6">
+      <input type="text" placeholder="Pesquisar..." class="flex-1 p-2 rounded-full text-black">
+      <button class="bg-blue-500 px-3 py-1 rounded-full">🔍</button>
+    </div>
+
+    <!-- Categorias -->
+   <!-- Categorias -->
+    <h2 class="text-center text-2xl font-semibold mb-4">Categorias</h2>
+    <div class="flex flex-wrap justify-center gap-2 mb-8">
+    <a href=""><span class="bg-gradient-to-r from-green-400 to-blue-500 px-3 py-1 rounded-full">Indie</span></a>
+    <a href=""><span class="bg-gradient-to-r from-green-400 to-blue-500 px-3 py-1 rounded-full">Latino</span></a>
+    <a href=""><span class="bg-gradient-to-r from-green-400 to-blue-500 px-3 py-1 rounded-full">Pop</span></a>
+    <a href=""><span class="bg-gradient-to-r from-purple-500 to-pink-500 px-3 py-1 rounded-full">Eletrônica</span></a>
+    <a href=""> <span class="bg-gradient-to-r from-purple-500 to-pink-500 px-3 py-1 rounded-full">Rock</span></a>
+    <a href="categoriasPop.html"><span class="bg-gradient-to-r from-purple-500 to-pink-500 px-3 py-1 rounded-full">K-Pop</span></a>
+      
+
+    <!-- Suas Playlists -->
+    <section class="mb-6">
+      <h3 class="text-lg font-semibold mb-2">🎧 Suas Playlists</h3>
+      <div class="grid grid-cols-3 gap-2">
+        <% suasPlaylists.forEach(musica => { %>
+          <a href="/play?id=<%= musica.id %>&artist=<%= musica.artista %>&image=<%= musica.imagem %>" class="text-center">
+            <img src="<%= musica.imagem %>" alt="<%= musica.titulo %>" class="w-20 h-20 object-cover rounded-md">
+            <p class="text-xs mt-1"><%= musica.titulo %></p>
+          </a>
+        <% }) %>
+      </div>
+    </section>
+
+    <!-- Feito para Você -->
+    <section class="mb-6">
+      <h3 class="text-lg font-semibold mb-2">✨ Feito pra Você</h3>
+      <div class="grid grid-cols-2 gap-2">
+        <% feitasparavoce.forEach(musica => { %>
+          <a href="/play?id=<%= musica.id %>&artist=<%= musica.artista %>&image=<%= musica.imagem %>" class="text-center">
+            <img src="<%= musica.imagem %>" alt="<%= musica.titulo %>" class="w-full h-24 object-cover rounded-md">
+            <p class="text-xs mt-1"><%= musica.titulo %></p>
+          </a>
+        <% }) %>
+      </div>
+    </section>
+
+    <!-- As Mais Ouvidas -->
+    <section class="mb-8">
+      <h3 class="text-lg font-semibold mb-2">🔥 As Mais Ouvidas</h3>
+      <div class="flex overflow-x-auto space-x-4">
+        <% AsMaisOuvidas.forEach(musica => { %>
+          <a href="/play?id=<%= musica.id %>&artist=<%= musica.artista %>&image=<%= musica.imagem %>" class="flex-shrink-0 w-24 text-center">
+            <img src="<%= musica.imagem %>" alt="<%= musica.titulo %>" class="w-full h-24 object-cover rounded-md">
+            <p class="text-xs mt-1"><%= musica.titulo %></p>
+          </a>
+        <% }) %>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center py-4 text-gray-500 text-xs">
+    © 2024 WebSoft Ltda. Todos os direitos reservados.
+  </footer>
+
+</body>
+</html>

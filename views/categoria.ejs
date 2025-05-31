@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EchoFlow - <%= nome %></title>
+  <link rel="stylesheet" href="/stylesheets/style_categoria.css" />
+</head>
+<body>
+   <!-- Cabeçalho -->
+    <div class="barra barra-1"></div>
+    <div class="barra barra-2">
+        <h1>EchoFlow</h1>
+    </div>
+
+  <main>
+    <h1>🎵 <%= nome %></h1>
+    <p>Os sucessos do dia. Por quem você curte?</p>
+
+    <section>
+
+<h2 class="text-center text-2xl font-semibold mb-4"><%= nome %></h2>
+<p>Os sucessos do dia. Por quem você curte?</p>
+
+<section>
+      <h2>🔥 Em Alta</h2>
+      <div class="card-container">
+        <% musicas.forEach(musica => { %>
+          <a href="/play?id=<%= musica.id %>&artist=<%= musica.artista %>&image=<%= musica.imagem %>" class="card-link">
+            <div class="music-card">
+              <div class="thumbnail" style="background-image: url('<%= musica.imagem %>');"></div>
+              <p><%= musica.titulo %></p>
+            </div>
+          </a>
+        <% }) %>
+      </div>
+    </section>
+
+    <footer>
+      © 2024 EchoFlow. Todos os direitos reservados.
+    </footer>
+  </main>
+</body>
+</html>

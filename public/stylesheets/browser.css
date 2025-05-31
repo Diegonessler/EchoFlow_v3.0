@@ -1,0 +1,138 @@
+/* Estilização geral */
+body {
+  background-color: #1a1a1a;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* Cabeçalho */
+.header {
+  background: linear-gradient(90deg, #4a90e2, #50e3c2);
+  padding: 15px;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 28px;
+  text-transform: uppercase;
+}
+
+/* Estilo de categorias */
+.category {
+  background-color: #4a90e2;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 20px;
+  margin: 5px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.category:hover {
+  background-color: #50e3c2;
+}
+
+/* Títulos */
+h2, h3 {
+  margin: 20px 0; /* Espaçamento uniforme */
+  text-align: center;
+}
+
+
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Espaçamento entre os cards */
+}
+
+.tile {
+  background: rgba(0, 0, 0, 0.8); /* Fundo escuro com leve transparência */
+  border-radius: 12px; /* Bordas arredondadas */
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efeito de hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra */
+  width: 200px; /* Largura fixa para os cards */
+}
+
+.tile:hover {
+  transform: translateY(-5px); /* Levanta o card ao passar o mouse */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7); /* Aumenta a sombra no hover */
+}
+
+.tile img {
+  width: 100%; /* Imagem responsiva */
+  height: auto; /* Mantém a proporção */
+  border-radius: 8px; /* Bordas arredondadas na imagem */
+}
+
+.tile p {
+  margin: 10px 0 0; /* Margem superior para o título */
+  font-size: 16px; /* Tamanho da fonte */
+  color: #fff; /* Cor do texto */
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #1a1a1a;
+  color: #666;
+  font-size: 12px;
+}
+
+/* Barras */
+.barra {
+  width: 100%;
+}
+.barra-1 {
+    background-color: red; /* Cor da primeira barra */
+    height: 80px; /* Barra 1 maior */
+    position: fixed; /* Posicionamento fixo */
+    top: 0; /* Posiciona no topo da tela */
+    left: 0; /* Alinha ao lado esquerdo da tela */
+    z-index: 1;
+    background: linear-gradient(to bottom, #6A00F4 40%, black 100%); /* Degradê na parte inferior */
+    background: linear-gradient(135deg, #00AEEF, #6A00F4); /* Degradê diagonal */
+    filter: blur(9px);
+    width: 105%; /* A largura da barra 1 é um pouco maior que a da barra 2 */
+    margin-left: -2.5%; /* Ajuste para centralizar a barra 1 e deixá-la maior */
+}
+
+.barra-2 {
+    background-color: blue; /* Cor da segunda barra */
+    height: 80px; /* Barra 2 menor */
+    position: fixed; /* Posicionamento fixo */
+    top: 40px; /* Posiciona logo abaixo da barra 1 */
+    left: 0; /* Alinha ao lado esquerdo da tela */
+    z-index: 2; /* Barra azul ficará acima da vermelha */
+    margin-top: -60px; /* Move a barra azul para cima */
+    background: linear-gradient(135deg, #00AEEF, #6A00F4); /* Degradê diagonal */
+    font-size: 16px; /* Tamanho da fonte */
+    font-family: 'LINEMAS';
+    display: flex; /* Use flexbox to align h1 and header */
+    align-items: center; /* Vertically center items */
+    justify-content: space-between; /* Space between h1 and header */
+    padding: 0 20px; /* Add padding for better spacing */
+}
+
+
+
+h2 {
+  margin-top: 100px; /* Aumente para dar espaço suficiente entre a barra e as categorias */
+  margin-bottom: 20px; /* Espaço abaixo do título */
+  text-align: center; /* Centraliza o texto */
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 15px;
+  justify-items: center; /* Centraliza os itens horizontalmente */
+  align-items: center; /* Centraliza os itens verticalmente */
+}

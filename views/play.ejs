@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Play - <%= musica.titulo %></title>
+  <link rel='stylesheet' href='../stylesheets/estilo.css' />
+  <div class="barra barra-1"></div>
+  <div class="barra barra-2"><h1>EchoFlow</h1></div>
+</head>
+<body>
+  <div class="player-container">
+    <img class="cover-art" src="<%= musica.imagem %>" alt="<%= musica.titulo %>">
+    <div class="musica-info">
+      <h3><%= musica.titulo %></h3>
+      <p>Artista: <%= musica.artista %></p>
+    </div>
+
+    <audio id="audioPlayer" controls>
+      <source src="<%= musica.audioUrl %>" type="audio/mpeg">
+      Seu navegador não suporta o elemento de áudio.
+    </audio>
+
+    <div class="controls">
+      <button onclick="document.getElementById('audioPlayer').play();">&#9654;</button>
+      <button onclick="document.getElementById('audioPlayer').pause();">&#10074;&#10074;</button>
+    </div>
+  </div>
+
+  <div class="logo">
+    <img src="/images/logo.png" alt="Logo EchoFlow">
+  </div>
+</body>
+<footer>
+</footer>
+</html>
