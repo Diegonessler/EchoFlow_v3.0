@@ -1,28 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
   <head>
+    <meta charset="UTF-8" />
     <title>EchoFlow - Cadastro</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
     <div class="barra barra-1"></div>
     <div class="barra barra-2">
       <h1>EchoFlow</h1>
     </div>
-  </head>
-  <body>
+
     <div class="titulo">
       <h1 class="h1-body">Cadastro</h1>
     </div>
 
     <div class="container">
-      <form action="/register" method="POST">
-        <input placeholder="Nome" class="input" name="nome" type="text" required />
-        <input placeholder="Email" class="input" name="email" type="email" required />
-        <input placeholder="Senha" class="input" name="senha" type="password" required />
-        <input placeholder="Confirme a Senha" class="input" name="confirma_senha" type="password" required />
-        <button class="btn" type="submit">Cadastrar</button>
-        
-      </form>
-    </div>
+
+  <% if (typeof mensagemErro !== 'undefined' && mensagemErro) { %>
+    <div class="mensagem-erro"><%= mensagemErro %></div>
+  <% } %>
+
+  <form action="/register" method="POST">
+    <input placeholder="Nome" class="input" name="nome" type="text" required />
+    <input placeholder="Email" class="input" name="email" type="email" required />
+    <input placeholder="Senha" class="input" name="senha" type="password" required />
+    <input placeholder="Confirme a Senha" class="input" name="confirma_senha" type="password" required />
+    <button class="btn" type="submit">Cadastrar</button>
+  </form>
+</div>
   </body>
   <footer></footer>
 </html>

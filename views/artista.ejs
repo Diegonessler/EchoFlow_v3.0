@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title><%= nomeArtista %> - Músicas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .musicas-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .musica-card {
+      background-color: #1e1e1e;
+      border-radius: 12px;
+      overflow: hidden;
+      width: 240px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .musica-card:hover {
+      transform: scale(1.03);
+    }
+
+    .musica-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .musica-info {
+      padding: 15px;
+    }
+
+    .musica-info h3 {
+      font-size: 18px;
+      margin: 10px 0 5px;
+    }
+
+    .musica-info p {
+      margin: 0;
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    .play-button {
+      margin-top: 15px;
+      padding: 8px 20px;
+      background-color: #00cc88;
+      border: none;
+      border-radius: 20px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .play-button:hover {
+      background-color: #00b078;
+    }
+
+    .voltar {
+      display: block;
+      text-align: center;
+      margin-top: 40px;
+      color: #00cc88;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h2>Músicas de <%= nomeArtista %></h2>
+
+  <div class="musicas-container">
+    <% musicas.forEach(musica => { %>
+      <div class="musica-card">
+        <img src="<%= musica.imagem %>" alt="<%= musica.titulo %>">
+        <div class="musica-info">
+          <h3><%= musica.titulo %></h3>
+          <p><%= musica.genero %></p>
+          <audio controls style="margin-top: 10px; width: 100%;">
+            <source src="<%= musica.url_audio %>" type="audio/mpeg">
+            Seu navegador não suporta o player de áudio.
+          </audio>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+
+  <a class="voltar" href="/browser">🔙 Voltar para início</a>
+</body>
+</html>

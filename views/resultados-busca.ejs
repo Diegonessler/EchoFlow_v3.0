@@ -2,71 +2,49 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EchoFlow</title>
+  <title>EchoFlow - Resultados</title>
   <link rel="stylesheet" href="/stylesheets/estiles.css">
-  <script defer src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 <body>
-  
-  <!-- Cabeçalho -->
+
   <div class="barra barra-1"></div>
   <div class="barra barra-2">
     <h1>EchoFlow</h1>
     <header>
-      <form action="/buscar" method="get" id="form-busca" style="display: flex; align-items: center; gap: 8px;">
-        <input type="text" name="q" id="buscaPlaylists" placeholder="Pesquisar músicas e playlists..." style="padding: 6px 10px; border: 1px solid #ccc; border-radius: 4px;">
+      <form action="/buscar" method="get" style="display: flex; align-items: center; gap: 8px;">
+        <input type="text" name="q" value="<%= termo %>" placeholder="Pesquisar..." style="padding: 6px 10px; border: 1px solid #ccc; border-radius: 4px;">
         <button type="submit" style="padding: 6px 12px; background-color: #1DB954; color: white; border: none; border-radius: 4px;">Buscar</button>
       </form>
     </header>
   </div>
 
-  <!-- Seção de Destaque -->
-  <div class="highlight">
-    <h2>Descubra novas músicas</h2>
-    <p>Explore os sucessos mais recentes e suas músicas favoritas.</p>
-    <a href="/browser"><button>Descubra</button></a> 
-  </div>
-
-  <!-- Minha Playlist -->
-  <!-- playlist -->
-
-   <section>
   <section>
-  <h3>Acessar Minha Playlist 🎶</h3>
-  <div class="grid">
-    <a href="/minhaplaylist" class="card-link">
-      <div class="card acessar-playlist">
-        <img src="/images/minhaplaylist.png" alt="Minha Playlist"> 
-        <p>Ir para Minha Playlist</p>
-      </div>
-    </a>
-  </div>
-</section>
+    <h2 style="color: white;">Resultados para "<%= termo %>"</h2>
 
-  <!-- Destaques -->
-  <section>
-    <h3>As Mais Ouvidas 🎧</h3>
+    <!-- Músicas -->
+    <h3 style="color: white;">Músicas 🎵</h3>
     <div class="grid">
-      <% AsMaisOuvidas.forEach(musica => { %>
-        <div class="card">
-          <a href="/play?id=<%= musica.id %>&artist=<%= musica.artista %>&image=<%= musica.imagem %>" class="card-link">
-            <img src="<%= musica.imagem %>" alt="<%= musica.titulo %>">
-            <p><%= musica.titulo %></p>
-          </a>
-          <button class="icon-overlay add-to-playlist-btn" data-id="<%= musica.id %>" data-title="<%= musica.titulo %>" data-artist="<%= musica.artista %>">
-            <i class="fas fa-circle-plus"></i>
-          </button>
-        </div>
-      <% }) %>
+      <% if (musicas.length > 0) { %>
+        <% musicas.forEach(musica => { %>
+          <div class="card">
+            <a href="/play?id=<%= musica.id %>&artist=<%= musica.artista %>&image=<%= musica.imagem %>" class="card-link">
+              <img src="<%= musica.imagem %>" alt="<%= musica.titulo %>">
+              <p><%= musica.titulo %></p>
+            </a>
+            <button class="icon-overlay add-to-playlist-btn" data-id="<%= musica.id %>" data-title="<%= musica.titulo %>" data-artist="<%= musica.artista %>">
+              <i class="fas fa-circle-plus"></i>
+            </button>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <p style="color: white;">Nenhuma música encontrada.</p>
+      <% } %>
     </div>
-  </section>
 
-  <!-- Playlists (com resultado dinâmico) -->
-  <section>
-    <h3>Playlists</h3>
-    <div class="grid" id="resultadosPlaylists">
-      <% if (playlists && playlists.length > 0) { %>
+    <!-- Playlists -->
+    <h3 style="color: white; margin-top: 40px;">Playlists 📂</h3>
+    <div class="grid">
+      <% if (playlists.length > 0) { %>
         <% playlists.forEach(p => { %>
           <a href="/playlist/<%= p.id %>" class="card-link">
             <div class="card">
@@ -85,7 +63,6 @@
     </div>
   </section>
 
-  <!-- Script para adicionar música à playlist -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const botoes = document.querySelectorAll('.add-to-playlist-btn');
@@ -121,10 +98,9 @@
     });
   </script>
 
-
-  <!-- Footer -->
   <footer>
     <h6>© 2024 WebSoft Ltda. Todos os direitos reservados.</h6>
   </footer>
+
 </body>
 </html>

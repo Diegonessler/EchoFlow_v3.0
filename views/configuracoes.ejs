@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Configurações - EchoFlow</title>
+  <link rel="stylesheet" href="/stylesheets/browser.css" />
+  <style>
+    .config-container {
+      padding: 40px;
+      color: white;
+      max-width: 700px;
+      margin: auto;
+      font-family: Arial, sans-serif;
+    }
+
+    .config-link {
+      display: inline-block;
+      margin: 6px 0;
+      padding: 8px 12px;
+      color: #ddd;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.2s;
+    }
+
+    .config-link:hover {
+      background-color: #444;
+    }
+
+    .section-title {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #ccc;
+    }
+
+    .footer {
+      margin-top: 50px;
+      text-align: center;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <div class="barra barra-1"></div>
+  <div class="barra barra-2" style="display: flex; justify-content: space-between; align-items: center;">
+    <h1>EchoFlow</h1>
+    <% if (usuario) { %>
+    <div class="user-menu-container" style="position: relative; margin-right: 20px;">
+      <img src="<%= usuario.avatar || '/images/avatar-padrao.png' %>" alt="Avatar" class="avatar" id="avatar-btn" style="width: 36px; height: 36px; border-radius: 50%; cursor: pointer;">
+      <span style="color: white; margin-left: 8px;"><%= usuario.nome %></span>
+      <div class="dropdown-menu" id="user-dropdown" style="display: none; position: absolute; right: 0; top: 45px; background-color: #222; color: white; padding: 10px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.4); z-index: 100;">
+        <a href="/perfis" style="color: #ffffff;">Perfil</a><br>
+        <a href="/configuracoes" style="color: #ffffff;">Configurações</a><br>
+        <a href="/logout" style="color: #ffffff;">Sair</a>
+      </div>
+    </div>
+    <% } %>
+  </div>
+
+  <!-- Script do dropdown -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const avatarBtn = document.getElementById('avatar-btn');
+      const dropdown = document.getElementById('user-dropdown');
+
+      avatarBtn.addEventListener('click', () => {
+        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!avatarBtn.contains(e.target) && !dropdown.contains(e.target)) {
+          dropdown.style.display = 'none';
+        }
+      });
+    });
+  </script>
+
+ <!-- Conteúdo -->
+  <div class="config-container">
+    <h2 style="margin-bottom: 30px; font-size: 28px;">Configurações do Perfil</h2>
+
+    <% const avatarPath = usuario.avatar && usuario.avatar.trim() !== '' ? usuario.avatar : '/images/avatar-padrao.png'; %>
+
+    <!-- Avatar -->
+    <form action="/configuracoes/upload-avatar" method="POST" enctype="multipart/form-data" style="margin-bottom: 50px;">
+      <h3 style="font-size: 22px; margin-bottom: 10px;">Foto de Perfil</h3>
+      <img src="<%= avatarPath %>" alt="Avatar" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 2px solid #888; margin: 15px 0;" />
+      <div style="margin-top: 10px; margin-bottom: 15px;">
+        <input type="file" name="avatar" id="avatar" accept="image/*" style="background-color: #222; color: white; padding: 8px; border: 1px solid #444; border-radius: 5px;" />
+      </div>
+      <button type="submit" style="padding: 10px 20px; background-color: #6c63ff; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">
+        Salvar nova foto
+      </button>
+    </form>
+
+
+
+   <!-- Informações Pessoais -->
+<div style="margin-bottom: 40px;">
+  <h3 class="section-title">Mudar informações pessoais</h3>
+  <p style="margin-bottom: 10px;">Atualize seus dados pessoais, como nome e senha.</p>
+  <button id="btnAbrirInfo" style="padding: 10px 20px; background-color: #6c63ff; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">
+    Alterar
+  </button>
+
+  <div id="secaoAlterarInfo" style="display: none; margin-top: 20px;">
+    <!-- Formulário para alterar nome -->
+    <form id="formAlterarNome" style="margin-bottom: 30px;">
+      <label for="novoNome" style="display: block; margin-bottom: 6px; font-weight: bold;">Seu nome:</label>
+      <input type="text" id="novoNome" name="novoNome" value="<%= usuario.nome %>" required
+        style="background-color: #222; color: white; padding: 10px; border: 1px solid #444; border-radius: 5px; width: 100%; max-width: 320px;" />
+      <button type="submit"
+        style="margin-top: 10px; padding: 10px 20px; background-color: #6c63ff; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">
+        Salvar novo nome
+      </button>
+    </form>
+
+    <form id="formAlterarSenha" style="margin-top: 30px;">
+  <label for="senhaAtual" style="display: block; margin-bottom: 6px; font-weight: bold;">Senha atual:</label>
+  <input type="password" id="senhaAtual" required
+    style="background-color: #222; color: white; padding: 10px; border: 1px solid #444; border-radius: 5px; width: 100%; max-width: 320px;" />
+
+  <label for="novaSenha" style="display: block; margin-top: 15px; margin-bottom: 6px; font-weight: bold;">Nova senha:</label>
+  <input type="password" id="novaSenha" required
+    style="background-color: #222; color: white; padding: 10px; border: 1px solid #444; border-radius: 5px; width: 100%; max-width: 320px;" />
+
+  <button type="submit"
+    style="margin-top: 15px; padding: 10px 20px; background-color: #6c63ff; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">
+    Alterar senha
+  </button>
+</form>
+  </div>
+</div>
+   
+  <footer class="footer">
+    © 2024 WebSoft Ltda. Todos os direitos reservados.
+  </footer>
+
+  <!-- Script: dropdown do avatar -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const avatarBtn = document.getElementById('avatar-btn');
+      const dropdown = document.getElementById('user-dropdown');
+
+      avatarBtn.addEventListener('click', () => {
+        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!avatarBtn.contains(e.target) && !dropdown.contains(e.target)) {
+          dropdown.style.display = 'none';
+        }
+      });
+    });
+  </script>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const avatarBtn = document.getElementById('avatar-btn');
+    const dropdown = document.getElementById('user-dropdown');
+    const btnAbrirInfo = document.getElementById('btnAbrirInfo');
+    const secaoAlterarInfo = document.getElementById('secaoAlterarInfo');
+
+    avatarBtn.addEventListener('click', () => {
+      dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!avatarBtn.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.style.display = 'none';
+      }
+    });
+
+    // Alternar visibilidade da aba de dados pessoais
+    btnAbrirInfo.addEventListener('click', () => {
+      secaoAlterarInfo.style.display = secaoAlterarInfo.style.display === 'none' ? 'block' : 'none';
+    });
+
+    // Enviar novo nome via fetch
+    document.getElementById('formAlterarNome').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const novoNome = document.getElementById('novoNome').value.trim();
+
+      if (novoNome.length < 2) {
+        alert("Digite um nome válido.");
+        return;
+      }
+
+      try {
+        const resposta = await fetch('/configuracoes/alterar-nome', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ novoNome })
+        });
+
+        const resultado = await resposta.json();
+        if (resultado.sucesso) {
+          alert("Nome alterado com sucesso!");
+          location.reload();
+        } else {
+          alert("Erro: " + resultado.mensagem);
+        }
+      } catch (erro) {
+        console.error("Erro ao alterar nome:", erro);
+        alert("Erro ao tentar alterar o nome.");
+      }
+    });
+  });
+
+  // Enviar nova senha via fetch
+document.getElementById('formAlterarSenha').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const senhaAtual = document.getElementById('senhaAtual').value.trim();
+  const novaSenha = document.getElementById('novaSenha').value.trim();
+
+  if (novaSenha.length < 4) {
+    alert("A nova senha deve ter pelo menos 4 caracteres.");
+    return;
+  }
+
+  try {
+    const resposta = await fetch('/configuracoes/alterar-senha', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ senhaAtual, novaSenha })
+    });
+
+    const resultado = await resposta.json();
+    if (resultado.sucesso) {
+      alert("Senha alterada com sucesso!");
+      document.getElementById('formAlterarSenha').reset();
+    } else {
+      alert("Erro: " + resultado.mensagem);
+    }
+  } catch (erro) {
+    console.error("Erro ao alterar senha:", erro);
+    alert("Erro ao tentar alterar a senha.");
+  }
+});
+
+</script>
+</body>
+</html>

@@ -119,7 +119,7 @@ h2, h3 {
     display: flex; /* Use flexbox to align h1 and header */
     align-items: center; /* Vertically center items */
     justify-content: space-between; /* Space between h1 and header */
-    padding: 0 20px; /* Add padding for better spacing */
+
 }
 
 
@@ -135,4 +135,39 @@ h2 {
   gap: 15px;
   justify-items: center; /* Centraliza os itens horizontalmente */
   align-items: center; /* Centraliza os itens verticalmente */
+}
+
+a {
+  text-decoration: none;
+}
+
+
+
+.user-menu-container {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  z-index: 100;
+  width: 60px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+
+.config-link {
+  display: inline-block;
+  padding: 6px 0;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.config-link:hover {
+  color: #6c63ff;
 }

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Minha Playlist 🎶</title>
+  <link rel='stylesheet' href='/stylesheets/playlist.css' />
+</head>
+<body>
+  <!-- Cabeçalho fixo -->
+  <div class="barra barra-1"></div>
+  <div class="barra barra-2">
+    <h1>minha Playlists🎧</h1>
+  </div>
+
+  <!-- ✅ Espaçador deve ficar AQUI -->
+  <div class="top-spacer"></div>
+
+<div class="top-spacer"></div>
+
+<% if (musicas && musicas.length > 0) { %>
+  <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; padding: 20px;">
+    <% musicas.forEach(musica => { %>
+      <div class="card" style="position: relative; background-color: #222; padding: 10px; border-radius: 10px; text-align: center;">
+        <a href="/play?id=<%= musica.id %>" class="card-link" style="text-decoration: none;">
+          <img src="<%= musica.imagem %>" alt="<%= musica.titulo %>" style="width: 100%; height: 160px; object-fit: cover; border-radius: 8px;">
+          <p style="color: white; margin: 8px 0 4px; font-weight: bold;"><%= musica.titulo %></p>
+          <small style="color: #ccc;"><%= musica.artista %></small>
+        </a>
+     <button 
+  class="remove-from-playlist-btn" 
+  data-id="<%= musica.id %>" 
+  title="Remover da playlist">
+  <i class="fas fa-trash"></i>
+</button>
+      </div>
+    <% }) %>
+  </div>
+    <% } else { %>
+      <p style="color: white; text-align: center;">Nenhuma música encontrada na sua playlist.</p>
+    <% } %>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const botoes = document.querySelectorAll('.remove-from-playlist-btn');
+
+    botoes.forEach(botao => {
+      botao.addEventListener('click', async (e) => {
+        e.preventDefault();
+
+        const musicaId = botao.dataset.id;
+
+        try {
+          const resposta = await fetch('/remover-playlist', {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ musicaId })
+          });
+
+          const resultado = await resposta.json();
+
+          if (resultado.sucesso) {
+           const card = botao.closest('.card');
+
+            card.remove();
+          } else {
+            alert('Erro ao remover a música da playlist.');
+          }
+        } catch (erro) {
+          console.error('Erro ao remover música:', erro);
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>

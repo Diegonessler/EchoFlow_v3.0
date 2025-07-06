@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EchoFlow - Playlist</title>
+  <link rel="stylesheet" href="/stylesheets/playlist.css" />
+</head>
+<body>
+
+  <div class="barra barra-1"></div>
+  <div class="barra barra-2">
+    <h1>EchoFlow</h1>
+  </div>
+
+  <div class="top-spacer"></div>
+
+  <main>
+    <section class="playlist-header">
+      <img src="<%= playlist.imagem %>" alt="<%= playlist.nome %>" class="playlist-imagem" />
+      <div class="playlist-info">
+        <h2><%= playlist.nome %></h2>
+        <p><%= playlist.descricao %></p>
+      </div>
+    </section>
+
+    <ul class="musica-lista">
+      <% musicas.forEach(musica => { %>
+        <li class="musica-card">
+          <img src="<%= musica.imagem %>" alt="<%= musica.titulo %>" class="musica-img" />
+          <div class="musica-info">
+            <p class="titulo"><%= musica.titulo %></p>
+            <div class="musica-acoes">
+              <button onclick="playAudio('<%= musica.url_audio %>')" title="Tocar">▶️</button>
+              <button title="Adicionar">➕</button>
+            </div>
+          </div>
+        </li>
+      <% }) %>
+    </ul>
+  </main>
+
+  <audio id="audio-player" controls style="display:none;"></audio>
+
+  <script>
+    function playAudio(url) {
+      const player = document.getElementById("audio-player");
+      player.src = url;
+      player.style.display = "block";
+      player.play();
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,160 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: black ;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  color: #fff;
+}
+
+/* Barras superiores */
+.barra {
+  width: 100%;
+}
+.barra {
+  width: 100%;
+}
+.barra-1 {
+    background-color: red; /* Cor da primeira barra */
+    height: 80px; /* Barra 1 maior */
+    position: fixed; /* Posicionamento fixo */
+    top: 0; /* Posiciona no topo da tela */
+    left: 0; /* Alinha ao lado esquerdo da tela */
+    z-index: 1;
+    background: linear-gradient(to bottom, #6A00F4 40%, black 100%); /* Degradê na parte inferior */
+    background: linear-gradient(135deg, #00AEEF, #6A00F4); /* Degradê diagonal */
+    filter: blur(9px);
+    width: 105%; /* A largura da barra 1 é um pouco maior que a da barra 2 */
+    margin-left: -2.5%; /* Ajuste para centralizar a barra 1 e deixá-la maior */
+}
+
+.barra-2 {
+    background-color: blue; /* Cor da segunda barra */
+    height: 80px; /* Barra 2 menor */
+    position: fixed; /* Posicionamento fixo */
+    top: 40px; /* Posiciona logo abaixo da barra 1 */
+    left: 0; /* Alinha ao lado esquerdo da tela */
+    z-index: 2; /* Barra azul ficará acima da vermelha */
+    margin-top: -60px; /* Move a barra azul para cima */
+    background: linear-gradient(135deg, #00AEEF, #6A00F4); /* Degradê diagonal */
+    font-size: 16px; /* Tamanho da fonte */
+    font-family: 'LINEMAS';
+    display: flex; /* Use flexbox to align h1 and header */
+    align-items: center; /* Vertically center items */
+    justify-content: space-between; /* Space between h1 and header */
+
+}
+h1 {
+  margin-top: 50px; /* Aumente para dar espaço suficiente entre a barra e as categorias */
+  margin-bottom: 20px; /* Espaço abaixo do título */
+  text-align: center; /* Centraliza o texto */
+}
+.top-spacer {
+  height: 120px;
+}
+
+/* Header da playlist */
+.playlist-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+.playlist-imagem {
+  width: 140px;
+  height: 140px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+.playlist-info h2 {
+  margin: 0;
+  font-size: 28px;
+}
+.playlist-info p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #ccc;
+}
+
+/* Lista de músicas */
+.musica-lista {
+  list-style: none;
+  padding: 20px;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+.musica-card {
+  background: #1c1c1c;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  transition: transform 0.2s ease;
+}
+.musica-card:hover {
+  transform: scale(1.03);
+}
+.musica-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+.musica-info {
+  padding: 12px;
+  text-align: center;
+}
+.musica-info .titulo {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.musica-acoes {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.musica-acoes button {
+  background: #6A00F4;
+  border: none;
+  color: rgb(248, 0, 0);
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  font-size: 14px;
+}
+.musica-acoes button:hover {
+  background: #8c2fff;
+}
+
+/* Player fixo */
+#audio-player {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 600px;
+  background-color: #222;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(255,255,255,0.1);
+}
+.remove-from-playlist-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: #f44336; /* vermelho */
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 1;
+  transition: background 0.2s ease;
+}
+
+.remove-from-playlist-btn:hover {
+  background-color: #d32f2f;
+}
+

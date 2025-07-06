@@ -1,0 +1,5 @@
+- falta finalizar os botoes 
+- falta fazer com que cada usuario tem suas musicas independendo se é usuario 1 ou usuario 2
+ " usuario 1 tem que ter as musicas 1 e 2 e usuario 2 tem que ter as musicas 3e 4 "
+- fazer as musicas funcionarem 
++ e + 

@@ -64,7 +64,6 @@ header nav a {
     width: 105%; /* A largura da barra 1 é um pouco maior que a da barra 2 */
     margin-left: -2.5%; /* Ajuste para centralizar a barra 1 e deixá-la maior */
 }
-
 .barra-2 {
     background-color: blue; /* Cor da segunda barra */
     height: 80px; /* Barra 2 menor */

@@ -137,3 +137,7 @@ h1 {
   margin-top: 10px; /* Margem superior */
   padding: 5px; /* Espaçamento interno */
 }
+
+a {
+  text-decoration: none;
+}
